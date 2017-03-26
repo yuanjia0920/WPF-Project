@@ -1,0 +1,47 @@
+﻿<Window x:Class="ProductApp.ProductWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProductApp"
+        mc:Ignorable="d"
+        Title="ProductWindow" Height="240" Width="300" FocusManager.FocusedElement="{Binding ElementName=uxNumber}" Loaded="Window_Loaded">
+    <Grid x:Name="uxGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">Number:</TextBlock>
+        <TextBox x:Name="uxNumber" Text="{Binding Number}" Grid.Column="1" Grid.Row="0"></TextBox>
+
+        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">Description:</TextBlock>
+        <TextBox x:Name="uxDescription" Text="{Binding Description}" Grid.Column="1" Grid.Row="1" AcceptsReturn="True" TextWrapping="Wrap" Height="60"></TextBox>
+
+        <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right">Price:</TextBlock>
+        <TextBox x:Name="uxPrice" Text="{Binding Price}" Grid.Column="1" Grid.Row="2" TextChanged="uxPrice_TextChanged"></TextBox>
+
+        <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right">Quantity:</TextBlock>
+        <TextBox x:Name="uxQuantity" Text="{Binding Quantity}" Grid.Column="1" Grid.Row="3" TextChanged="uxQuantity_TextChanged"></TextBox>
+
+        <TextBlock Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right">Value:</TextBlock>
+        <TextBox x:Name="uxValue" Text="{Binding Value}" Grid.Column="1" Grid.Row="4" IsEnabled="False"></TextBox>
+
+        <TextBlock Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right">Cost:</TextBlock>
+        <TextBox x:Name="uxCost" Text="{Binding Cost}" Grid.Column="1" Grid.Row="5"></TextBox>
+
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Right">
+            <Button x:Name="uxSubmit" MinWidth="10" HorizontalAlignment="Center" Click="uxSubmit_Click" Margin="10">Submit</Button>
+            <Button x:Name="uxCancel" MinWidth="10" HorizontalAlignment="Center" Click="uxCancel_Click" Margin="10">Cancel</Button>
+        </StackPanel>
+    </Grid>
+</Window>
