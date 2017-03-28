@@ -93,16 +93,6 @@ namespace ProductApp
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
-            /*var window = new ProductWindow();
-
-            if (window.ShowDialog() == true)
-            {
-                var uiProductModel = window.Product;
-                var repositoryProductModel = uiProductModel.ToRepositoryModel();
-                App.ProductRepository.Add(repositoryProductModel);
-
-                LoadProducts();
-            }*/
             uxFileAdd_Click(sender, null);
         }
 
@@ -113,9 +103,6 @@ namespace ProductApp
 
         private void buttonDelete_Click(object sender, RoutedEventArgs e)
         {
-            //App.ProductRepository.Remove(selectedProduct.Id);
-            //selectedProduct = null;
-            //LoadProducts();
             uxFileDelete_Click(sender, null);
         }
 
@@ -127,6 +114,24 @@ namespace ProductApp
         private void uxProductList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             uxFileChange_Click(sender, null);
+        }
+
+        private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
+        {
+            GridViewColumnHeader column = (sender as GridViewColumnHeader);
+
+            // Grab the Tag from the column header
+            string sortBy = column.Tag.ToString();
+
+            // Clear out any previous column sorting
+            uxProductList.Items.SortDescriptions.Clear();
+
+            // Sort the uxContactList by the column header tag (sortBy)
+            // If you want to do Descending, look at the homework :) and SortAdorner
+            var sortDescription = new System.ComponentModel.SortDescription(sortBy,
+                System.ComponentModel.ListSortDirection.Ascending);
+
+            uxProductList.Items.SortDescriptions.Add(sortDescription);
         }
     }
 }

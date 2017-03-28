@@ -18,12 +18,24 @@
         <ListView x:Name="uxProductList" Height="200" SelectionChanged="uxProductList_SelectionChanged" MouseDoubleClick="uxProductList_MouseDoubleClick">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Number}" Header="Number" Width="50" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Description}" Header="Description" Width="200" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Price}" Header="Price" Width="50" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Quantity}" Header="Quantity" Width="50" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Value}" Header="Value" Width="50" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Cost}" Header="Our cost per item" Width="100" />
+                    <GridViewColumn DisplayMemberBinding="{Binding Number}" Width="50">
+                        <GridViewColumnHeader Content="Number" Tag="Number" Click="GridViewColumnHeader_Click" />
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Description}" Width="200">
+                        <GridViewColumnHeader Content="Description" Tag="Description" Click="GridViewColumnHeader_Click" />
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Price}" Width="50">
+                        <GridViewColumnHeader Content="Price" Tag="Price" Click="GridViewColumnHeader_Click" />
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Quantity}" Width="50">
+                        <GridViewColumnHeader Content="Quantity" Tag="Quantity" Click="GridViewColumnHeader_Click" />
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Value}" Width="50">
+                        <GridViewColumnHeader Content="Value" Tag="Value" Click="GridViewColumnHeader_Click" />
+                    </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Cost}" Width="100">
+                        <GridViewColumnHeader Content="Our cost per item" Tag="Cost" Click="GridViewColumnHeader_Click" />
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
